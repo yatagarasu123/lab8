@@ -15,68 +15,33 @@
 #### README.md: описує структуру проекту, призначення кожного файлу, основні функції та методи з поясненням їх роботи.
 
 ## Опис основних функцій та методів з поясненням їх роботи
-### Task 1: JSON Parsing and Data Retrieval
-#### Objective: Парсинг JSON файлу і повернення списку імен осіб старше певного віку.
 ```python
-def task1(file_path, age_threshold):
-    # Опис роботи функції
-    pass
+#task 1
+def task1(file_path, age):
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    names_above = [entry['name'] for entry in data if entry['age'] > age]
+    return names_above
+#Приклад використання
+result = task1("data.json", 30)
+print(result)
 
+#task 2
+def task2(data, file_path):
+    with open(file_path, 'w') as file:
+        json.dump(data, file)
 # Приклад використання
-# print(task1("data.json", 30))  # Виведе: ["John Doe", "Jane Smith"]
+with open("output.json", 'r') as file:
+    output_data = json.load(file)
+    print(output_data)
 ```
 
-### Task 2: Data Transformation and JSON Serialization
-#### Objective: Перетворення списку словників у JSON рядок та запис його у файл.
-```python
-def task2(data_list, file_path):
-    # Опис роботи функції
-    pass
-
-# Приклад використання
-# task2([{"name": "John Doe", "age": 30, "city": "New York"}], "output.json")
-```
-
-### Task 3: JSON Schema Validation
-#### Objective: Валідація JSON файлів за заданою схемою.
-```python
-def task3(schema, file_paths):
-    # Опис роботи функції
-    pass
-
-# Приклад використання
-# schema = {"type": "object", "properties": {"name": {"type": "string"}, "age": {"type": "integer"}}}
-# print(task3(schema, ["data1.json", "data2.json"]))  # Виведе: ["data2.json"]
-```
-
-### Task 4: Nested JSON Data Handling
-#### Objective: Витягування специфічної інформації з вкладеної JSON структури.
-```python
-def task4(file_path, key):
-    # Опис роботи функції
-    pass
-
-# Приклад використання
-# print(task4("nested_data.json", "id"))  # Виведе: [101, 102, 103]
-```
-
-### Task 5: Updating JSON Data
-#### Objective: Оновлення певних полів у JSON файлі за заданими критеріями.
-```python
-def task5(file_path, category, update_function):
-    # Опис роботи функції
-    pass
-
-# Приклад використання
-# def increase_price(item):
-#     if item["category"] == "electronics":
-#         item["price"] += 10
-# task5("products.json", "electronics", increase_price)
-```
 
 ## Результати:
 ### Кожен рядок відповідає за виведення відповідної функції, тобто: 1 рядок - task1, 2 рядок - task2 і так далі.
-![example_output](https://github.com/yourusername/Python-Labs/assets/example_output.png)
+![example_output](![![image](https://github.com/yatagarasu123/lab8/assets/145234911/6aef15b6-70e1-4b10-ba50-8d96a36254cc)
+]()
+)
 
 ## Висновки:
 ### Мета роботи була досягнута: були розглянуті та реалізовані різні методи обробки JSON даних у Python. Також вийшло розібратися та почати розумітися в цій темі.
